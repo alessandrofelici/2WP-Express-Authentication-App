@@ -36,12 +36,15 @@ const userSchema = new mongoose.Schema({
 
 userSchema.set("toJSON", {
   transform: (doc, ret) => {
-    ret.id = ret._id.toString();
-    delete ret._id;
-    delete ret.__v;
+    // **Different from tutorial**
+    // Cast the 'ret' object to 'any' to bypass TypeScript's strictness
+    const sanitizedRet = ret as any;
 
-    // DO NOT REVEAL PASSWORD HASH!!!!
-    delete ret.passwordHash;
+    delete sanitizedRet._id;
+    delete sanitizedRet.__v;
+    delete sanitizedRet.passwordHash;
+
+    return sanitizedRet;
   },
 });
 
