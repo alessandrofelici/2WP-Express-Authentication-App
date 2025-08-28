@@ -39,7 +39,7 @@ userSchema.set("toJSON", {
     // **Different from tutorial**
     // Cast the 'ret' object to 'any' to bypass TypeScript's strictness
     const sanitizedRet = ret as any;
-
+    sanitizedRet.id = ret._id.toString();
     delete sanitizedRet._id;
     delete sanitizedRet.__v;
     delete sanitizedRet.passwordHash;
