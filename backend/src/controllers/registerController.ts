@@ -42,3 +42,6 @@ export const registerUser = async (req: Request, res: Response, next: NextFuncti
     next(err);
   }
 }
+
+// sandroms521_db_user kzw3b2fUgtrP6UD7
+// mongodb+srv://sandroms521_db_user:kzw3b2fUgtrP6UD7@cluster0.a9dpy2t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
