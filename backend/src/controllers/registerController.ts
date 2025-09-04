@@ -2,7 +2,7 @@ import User from "src/models/user";
 const bcrypt = require('bcrypt');
 import { Request, Response, NextFunction } from "express";
 
-export const registerUser = async (req: Request, res: Response, next: NextFunction) => {
+export const register = async (req: Request, res: Response, next: NextFunction) => {
   const {username, name, email, password} = req.body;
 
   if (username.length <= 6) {

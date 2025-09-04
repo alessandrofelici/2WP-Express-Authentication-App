@@ -1,8 +1,8 @@
 const express = require('express');
-import { registerUser } from '../controllers/registerController';
+import { register } from '../controllers/registerController';
 
 const registerRouter = express.Router();
 
-registerRouter .post('/', registerUser);
+registerRouter .post('/', register);
 
 export default registerRouter;
