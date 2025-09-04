@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
   contacts: [ 
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Contact'
+      ref: "Contact"
     }
   ]
 });
@@ -48,4 +48,4 @@ userSchema.set("toJSON", {
   },
 });
 
-export default mongoose.model("User", userSchema);
+export default userSchema;

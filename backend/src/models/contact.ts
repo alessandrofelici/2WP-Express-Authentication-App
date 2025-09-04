@@ -37,4 +37,4 @@ contactSchema.set("toJSON", {
   }
 });
 
-export default mongoose.model("Contact", contactSchema);
+export default contactSchema;
