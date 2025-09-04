@@ -21,7 +21,7 @@ mongoose
     console.log("error connecting to MongoDB: ", error.message)
   );
 
-// MIddleware for parsing JSON
+// Middleware for parsing JSON
 app.use(express.json());
 
 // Routes
