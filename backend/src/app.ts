@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import config from './config';
 const cors = require('cors');
 
-// import registerRouter from './routers/registerRouter';
+import registerRouter from './routers/registerRouter';
 import userRouter from "./routers/userRouter";
 
 const app = express();
@@ -25,7 +25,7 @@ mongoose
 app.use(express.json());
 
 // Routes
-// app.use("/api/register", registerRouter);
+app.use("/api/register", registerRouter);
 app.use("/api/users", userRouter);
 
 export default app;
