@@ -6,6 +6,9 @@ const cors = require('cors');
 
 import registerRouter from './routers/registerRouter';
 import userRouter from "./routers/userRouter";
+import loginRouter from "./routers/loginRouter";
+import modifyToken from "./middlewares/modifyToken";
+import { jwtAuth } from "./middlewares/jwtAuth";
 
 const app = express();
 
@@ -24,8 +27,15 @@ mongoose
 // Middleware for parsing JSON
 app.use(express.json());
 
+// Add the jwtToken to request
+app.use(modifyToken);
+
 // Routes
+app.use("/api/login", loginRouter);
 app.use("/api/register", registerRouter);
 app.use("/api/users", userRouter);
+
+// Apply JWT authentication for protected routes
+app.use("/api/users", jwtAuth, userRouter);
 
 export default app;

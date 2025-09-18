@@ -11,3 +11,11 @@ declare global {
     }
   }
 }
+
+export interface JwtPayload {
+  id: string;
+  username: string;
+  name: string;
+  exp?: number;
+  iat?: number;
+};
