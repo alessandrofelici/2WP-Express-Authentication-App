@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 import { Request, Response, NextFunction } from "express";
-import config from "src/config";
+import config from "../config";
 import type { JwtPayload } from "@shared/types";
 
 export const jwtAuth = (req: Request, res: Response, next: NextFunction) => {
@@ -21,6 +21,7 @@ export const jwtAuth = (req: Request, res: Response, next: NextFunction) => {
       username: payload.username,
       name: payload.name
     }
+    console.log("hi")
     
     next();
   } catch (error) {

@@ -1,4 +1,4 @@
-import { User } from "src/models/index";
+import { User } from "../models/index";
 const bcrypt = require('bcrypt');
 import { Request, Response, NextFunction } from "express";
 

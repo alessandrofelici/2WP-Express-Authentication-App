@@ -9,6 +9,7 @@ import userRouter from "./routers/userRouter";
 import loginRouter from "./routers/loginRouter";
 import modifyToken from "./middlewares/modifyToken";
 import { jwtAuth } from "./middlewares/jwtAuth";
+import contactRouter from "./routers/contactRouter";
 
 const app = express();
 
@@ -34,8 +35,10 @@ app.use(modifyToken);
 app.use("/api/login", loginRouter);
 app.use("/api/register", registerRouter);
 app.use("/api/users", userRouter);
+app.use("/api/contacts", contactRouter);
 
 // Apply JWT authentication for protected routes
 app.use("/api/users", jwtAuth, userRouter);
+app.use("/api/contacts", jwtAuth, contactRouter);
 
 export default app;
