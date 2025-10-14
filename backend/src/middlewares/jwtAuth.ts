@@ -21,7 +21,6 @@ export const jwtAuth = (req: Request, res: Response, next: NextFunction) => {
       username: payload.username,
       name: payload.name
     }
-    console.log("hi")
     
     next();
   } catch (error) {

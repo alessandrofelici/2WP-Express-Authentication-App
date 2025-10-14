@@ -35,8 +35,6 @@ app.use(modifyToken);
 // Routes
 app.use("/api/login", loginRouter);
 app.use("/api/register", registerRouter);
-app.use("/api/users", userRouter);
-app.use("/api/contacts", contactRouter);
 
 // Apply JWT authentication for protected routes
 app.use("/api/users", jwtAuth, userRouter);
