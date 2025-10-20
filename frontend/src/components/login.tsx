@@ -1,0 +1,49 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+interface LoginFormProps {
+  handleLogin: (username: string, password: string) => void;
+}
+
+const LoginForm = ({ handleLogin }: LoginFormProps) => {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate();
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    handleLogin(username, password)
+  }
+
+  return (
+    <>
+      <form onSubmit={onSubmit}>
+        <div>
+          username{}
+          <input
+            type="text"
+            value={username}
+            name="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+
+        <div>
+          password{}
+          <input
+            type="text"
+            value={password}
+            name="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <input type="submit" value="Login"/>
+      </form>
+      <button onClick={() => {navigate("/register")}}>Register</button>
+    </>
+  )
+}
+
+
+export default LoginForm
