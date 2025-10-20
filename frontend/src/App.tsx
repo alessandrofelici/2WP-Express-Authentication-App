@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegisterForm from './components/register';
 
 function App() {
-  const { payload, contacts, handleLogin } = useLogin();
+  const { payload, contacts, handleLogin, handleLogout } = useLogin();
 
   return (
     <Router>
@@ -17,6 +17,7 @@ function App() {
             {payload !== null && (
               <ContactDisplay contacts={contacts} username={payload.username} />
             )}
+            <button onClick={handleLogout}>Logout</button>
           </>
         } />
         <Route path="register" element={<RegisterForm />} />

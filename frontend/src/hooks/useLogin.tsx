@@ -77,10 +77,17 @@ export function useLogin() {
     }
   }
 
+  const handleLogout = () => {
+    window.localStorage.removeItem("JwtAccessToken");
+    setJwt(null);
+    setContacts([]);
+  };
+
   return {
     payload,
     contacts,
-    handleLogin
+    handleLogin,
+    handleLogout
   }
 }
 
